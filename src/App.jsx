@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TopHeader from "./components/TopHeader";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
+
 function App() {
   const [todos, setTodos] = useState([]);
+
+  //loading todos from sessionStorage, I want it to refresh when I close the broswer
+  useEffect(()=>{
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
+    if(storedTodos) {
+      setTodos(storedTodos)
+    }
+  }, []);
+
+  useEffect(() => {
+    if (todos.length > 0) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }  else {
+      // If there are no todos, remove the item from localStorage
+      localStorage.removeItem("todos");
+    }
+  }, [todos]);
 
   function addTodo(title) {
     setTodos((currentTodos) => {
@@ -28,10 +46,10 @@ function App() {
 
   function deleteTodo(id) {
     setTodos((currentTodos) => {
-      return currentTodos.filter((todo) => {
-        todo.id !== id;
-      });
-    });
+      return currentTodos.filter((todo) => 
+        todo.id !== id);
+  });
+    
   }
 
   return (

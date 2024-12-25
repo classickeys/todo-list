@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --font-family: "Railway", sans-serif;
+    --primary-color: rgba(32, 31, 31, 1);
+    --secondary-color: #fff;
+    --tertiary-color: rgba(123, 30, 61, 0.4);
+    --ternary-color: rgba(143, 143, 143, 0.4);
+    --input-text-color: rgba(230, 248, 178, 0.8);
+}
+
+body {
+    min-width: max-content;
+    overflow: auto;
+}
+
+
+#root {
+    font-family: var(--font-family);
+    color: var(--secondary-color);
+
+    background-color: var(--tertiary-color);
+    padding: 5%;
+    display: inline-block;
+    border-radius: 3px;
+
+
+    h1 {
+        display: inline-block;
+        color: var(--input-text-color);
+    }
+
+    .form-row {
+        margin: 0 auto;
+        box-sizing: border-box;
+
+        label{
+            display: none;
+        }
+
+        input[type="text"]{
+            color: var(--primary-color);
+            text-align: center;
+            background-color: var(--input-text-color);
+            font-weight: bold;
+            font-style: oblique;
+            // border-color: var(--ternary-color);
+        }
+
+        .btn{
+            color: #fff;
+            background-color: var(--ternary-color);
+        }
+
+        .btn:hover{
+            background-color: var(--primary-color);
+            color: var(--input-text-color);
+        }
+
+    }
+
+    input[type="text"],
+    .btn {
+        display: block;
+        width: 100%;
+
+        padding-block: 0px;
+        padding-inline: 0px;
+        padding: 0;
+        border-width: 0px;
+        margin-top: 2%;
+        height: 40px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    label{
+        display: block;
+        margin-top: 2%;
+
+    }
+
+    .header{
+        white-space: nowrap;
+        
+
+    }
+
+    .todo-header {
+        box-sizing: border-box;
+        white-space: nowrap;
+
+        display: inline-block;
+        background-color: var(--ternary-color);
+        border-radius: 3px;
+        padding: 15px;
+    }
+
+    .list{
+        border-radius: 3px;
+        background-color: var(--ternary-color);
+        padding: 5%;
+        list-style: none;
+
+        .list-items{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .todo-checkbox{
+            margin: 0;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            appearance: none;
+            border: 2px solid var(--ternary-color);
+            height: 20px;
+            background-color: var(--ternary-color);
+
+        }
+
+        .todo-checkbox:checked{
+            background-color: var(--input-text-color);
+            border-color:  var(--ternary-color);
+             
+        }
+
+        .todo-checkbox:checked::after{
+            
+            content: 'O';
+            text-align: center;
+            color: var(--primary-color);
+            // border-radius: 50%;
+            font-size: 16px;
+        }
+
+        label{
+            display: inline-block;
+            width: 85%;
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--input-text-color);
+            flex: 1;    
+            margin-left: 10px;        
+
+        }
+        button{
+            display: inline-block;
+            font-weight: bolder;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+
+        }
+    }
+
+    .btn-danger{
+        color: var(--secondary-color);
+        background-color: rgba(255, 0, 0, 0.2);
+        width: fit-content;
+        padding: 2%;
+        font-size: 14px;
+        
+    }
+
+    .btn-danger:hover{
+        color: var(--input-text-color);
+        background-color: var(--primary-color);
+        
+    }
+}
+
+html {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100vh;
+    background-color: var(--primary-color);
+
+}
